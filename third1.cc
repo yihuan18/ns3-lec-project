@@ -25,18 +25,17 @@
 
 // Default Network Topology
 //默认网络拓扑
-// Number of wifi or csma nodes can be increased up to 250
 //                          |
 //                 Rank 0   |   Rank 1
 // -------------------------|----------------------------
 //   Wifi 10.1.3.0
-//                         AP
-//  *      *      *     *
-//  |      |      |     |      10.1.1.0
-// n5   n6   n7   n0 ------------------ n1   n2   n3   n4
-//                         point-to-point      |    |    |    |
-//                                                   ================
-//                                                         LAN 10.1.2.0
+//                   AP
+//   *      *      *     *
+//   |     |     |    |      10.1.1.0     10.1.2.0
+//   n5   n6   n7   n0 --------------- n1-------------n2
+//                        p2p                  p2p
+//                                                
+//                                                        
 
 using namespace ns3;
 
@@ -47,7 +46,7 @@ main (int argc, char *argv[])
 {
   bool verbose = true;		
   uint32_t nWifi = 3;				//wifi节点数量
-   bool tracing = false;
+   bool tracing = true;
 
 
   CommandLine cmd;
@@ -210,8 +209,8 @@ ApplicationContainer clientApps4 =
 
   if (tracing == true)
     {
-      pointToPoint.EnablePcapAll ("third");
-      phy.EnablePcap ("third", apDevices.Get (0));
+      pointToPoint.EnablePcapAll ("third1");
+      phy.EnablePcap ("third1", apDevices.Get (0));
     //  csma.EnablePcap ("third", p2pDevices.Get (0), true);
     }
 
