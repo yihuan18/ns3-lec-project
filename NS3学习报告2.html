@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>NS3学习报告2</title>
+</head>
+<body>
+<div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><h1 data-anchor-id="uri1" id="ns3学习报告2">NS3学习报告2</h1><p data-anchor-id="kjat"><code>NS3学习</code></p><hr><div class="md-section-divider"></div><h2 data-anchor-id="hwba" id="一网络拓扑与运行结果">一.网络拓扑与运行结果</h2><div class="md-section-divider"></div><h3 data-anchor-id="g89e" id="1thirdcc的网络拓扑">1.third.cc的网络拓扑</h3><pre data-anchor-id="d1zn"><code>两个csma局域网通过一个p2p信道连接：
+</code></pre><p data-anchor-id="2wmp">　　   LAN   10.1.3.0 <br>
+ ============= <br>
+｜　　｜　　｜　　｜ 　　10.1.1.0 <br>
+n5　　n6　　n7　　n0 -------------n1　　n2　　n3　　n4 <br>
+　　　　　　　　   　point to point　｜　　｜　　｜　　｜ <br>
+　　　　　　　　    　　　　　　　　=============== <br>
+　　　　　　　　    　　　　　　　　LAN 10.1.2.0 <br>
+server安装在节点n4上，四个客户机程序分别安装在节点n5,n6,n7和n0上。</p><div class="md-section-divider"></div><h3 data-anchor-id="hnvh" id="2thirdcc的运行结果">2.third.cc的运行结果</h3><p data-anchor-id="8c1l"><img src="http://ww4.sinaimg.cn/mw690/9fae6ceagw1f4wxbytt3mj20k00c2jzv.jpg" alt="third.cc运行结果"> <br>
+并且生成“third-0-0”,"third-0-1","third-1-0","third-1-1"的.pcap文件。</p><div class="md-section-divider"></div><h3 data-anchor-id="6iq9" id="3third1cc的网络拓扑">3.third1.cc的网络拓扑</h3><pre data-anchor-id="hb4z"><code>一个wifi小组依次连接两个p2p信道：
+</code></pre><p data-anchor-id="ivoh">　　LAN   10.1.3.0 <br>
+ ============= <br>
+｜　　｜　　｜　　｜ 　10.1.1.0　　　　10.1.2.0 <br>
+n5　　n6　　n7　　n0 -------------n1------------n2　　 <br>
+　　　　　　　　   　point to point　　point to point</p><div class="md-section-divider"></div><h3 data-anchor-id="s60x" id="4third1cc的运行结果">4.third1.cc的运行结果</h3><p data-anchor-id="6vqk">PS：third1.cc运用的依然是随机游走模型 <br>
+<img src="http://ww1.sinaimg.cn/mw690/9fae6ceagw1f4wxby6jlsj20k70b2n50.jpg" alt="third1.cc运行结果"> <br>
+并且生成“third1-0-0”,"third1-0-1","third1-1-0","third1-1-1"，“third1-2-0”的.pcap文件。</p><div class="md-section-divider"></div><h2 data-anchor-id="l41i" id="二移动模型修改与运行结果">二.移动模型修改与运行结果</h2><div class="md-section-divider"></div><h3 data-anchor-id="fheu" id="1移动模型修改">1.移动模型修改</h3><pre data-anchor-id="96qu"><code>在third1.cc的基础上修改，将wifi节点的随机游走模型改成线性远离AP节点的移动模型。
+</code></pre><p data-anchor-id="jm4s">修改后的代码为： <br>
+<img src="http://ww1.sinaimg.cn/mw690/9fae6ceagw1f50g6wjbovj20jq06xacx.jpg" alt="移动模型代码"></p><div class="md-section-divider"></div><h3 data-anchor-id="xmbh" id="2运行结果">2.运行结果</h3><p data-anchor-id="55kh"><img src="http://ww2.sinaimg.cn/mw690/9fae6ceagw1f50g0zcc2nj20k00b1ahs.jpg" alt="third2.cc运行结果"> <br>
+并且生成“third2-0-0”,"third2-0-1","third2-1-0","third2-1-1"，“third2-2-0”的.pcap文件。</p><div class="md-section-divider"></div><h2 data-anchor-id="22qx" id="三总结">三.总结</h2><blockquote data-anchor-id="t737" class="white-blockquote">
+  <p>NS3仿真脚本的编写方式为： <br>
+      1 创建网络节点； <br>
+     2 设置链路； <br>
+     3 安装设备； <br>
+      3 安装ip协议栈； <br>
+     4 分配ip地址； <br>
+     5 安装应用程序； <br>
+     6 设置仿真时间参数。</p>
+</blockquote></div>
+</body>
+</html>
