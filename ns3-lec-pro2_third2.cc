@@ -46,7 +46,7 @@ main (int argc, char *argv[])
 {
   bool verbose = true;		
   uint32_t nWifi = 3;				//wifi节点数量
-   bool tracing = false;
+   bool tracing = true;
 
 
   CommandLine cmd;
@@ -143,12 +143,15 @@ main (int argc, char *argv[])
 
   //配置STA移动方式，RandomWalk2dMobilityModel，随机游走模型
   //mobility.SetMobilityModel ("ns3::RandomWalk2dMobilityModel",
-  //             "Bounds", RectangleValue (Rectangle (-50, 50, -50, 50)));
+                           //  "Bounds", RectangleValue (Rectangle (-50, 50, -50, 50)));
   mobility.SetMobilityModel("ns3::ConstantVelocityMobilityModel");
-                           // "Position",Vector(0.0,0.0,0.0),
-                           // "Velocity",Vector(2.0,1.0,0.0));
-
   mobility.Install (wifiStaNodes);
+for (uint n=0 ; n < wifiStaNodes.GetN() ; n++)
+        {
+        Ptr<ConstantVelocityMobilityModel> mob = wifiStaNodes.Get(n)->GetObject<ConstantVelocityMobilityModel>();
+        mob->SetVelocity(Vector(10, 0, 0));
+        }
+
 
 //配置AP移动方式，ConstantPositionMobilityModel，固定位置模型
   mobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
@@ -213,8 +216,8 @@ ApplicationContainer clientApps4 =
 
   if (tracing == true)
     {
-      pointToPoint.EnablePcapAll ("third2");
-      phy.EnablePcap ("third2", apDevices.Get (0));
+      pointToPoint.EnablePcapAll ("ns3-lec-pro2_third2");
+      phy.EnablePcap ("ns3-lec-pro2_third2", apDevices.Get (0));
     //  csma.EnablePcap ("third", p2pDevices.Get (0), true);
     }
 
