@@ -166,10 +166,10 @@ ApplicationContainer clientApps3 =
 
   if (tracing == true)
     {
-      pointToPoint.EnablePcapAll ("third");
+      pointToPoint.EnablePcapAll ("ns3-lec-pro2_third");
       //phy.EnablePcap ("third", apDevices.Get (0));
-      csma.EnablePcap ("third", csmaDevices.Get (0), true);
-      csma.EnablePcap("third",csmaDevices1.Get(0),true);
+      csma.EnablePcap ("ns3-lec-pro2_third", csmaDevices.Get (0), true);
+      csma.EnablePcap("ns3-lec-pro2_third",csmaDevices1.Get(0),true);
     }
 
   Simulator::Run ();

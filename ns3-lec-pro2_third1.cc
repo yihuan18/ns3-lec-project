@@ -209,8 +209,8 @@ ApplicationContainer clientApps4 =
 
   if (tracing == true)
     {
-      pointToPoint.EnablePcapAll ("third1");
-      phy.EnablePcap ("third1", apDevices.Get (0));
+      pointToPoint.EnablePcapAll ("ns3-lec-pro2_third1");
+      phy.EnablePcap ("ns3-lec-pro2_third1", apDevices.Get (0));
     //  csma.EnablePcap ("third", p2pDevices.Get (0), true);
     }
 
